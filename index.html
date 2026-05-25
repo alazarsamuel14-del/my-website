@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>EnduranceCoachPro | Elite Distance Running Coaching</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+scroll-behavior:smooth;
+}
+
+body{
+font-family:'Poppins',sans-serif;
+background:#0b0f14;
+color:white;
+overflow-x:hidden;
+line-height:1.7;
+}
+
+nav{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:18px 7%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(0,0,0,0.75);
+backdrop-filter:blur(10px);
+z-index:1000;
+}
+
+.logo{
+font-size:28px;
+font-weight:800;
+color:#00ff99;
+letter-spacing:1px;
+}
+
+nav ul{
+display:flex;
+list-style:none;
+gap:28px;
+}
+
+nav a{
+color:white;
+text-decoration:none;
+font-weight:500;
+transition:0.3s;
+}
+
+nav a:hover{
+color:#00ff99;
+}
+
+.hero{
+height:100vh;
+position:relative;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+overflow:hidden;
+}
+
+.hero::before{
+content:'';
+position:absolute;
+width:100%;
+height:100%;
+background:rgba(0,0,0,0.65);
+z-index:1;
+}
+
+.hero video{
+position:absolute;
+width:100%;
+height:100%;
+object-fit:cover;
+}
+
+.hero-content{
+position:relative;
+z-index:2;
+max-width:900px;
+padding:20px;
+animation:fadeIn 2s ease;
+}
+
+.hero h1{
+font-size:78px;
+font-weight:800;
+margin-bottom:15px;
+}
+
+.hero p{
+font-size:28px;
+color:#00ff99;
+margin-bottom:35px;
+}
+
+.hero button{
+padding:15px 40px;
+border:none;
+border-radius:40px;
+background:#00ff99;
+color:black;
+font-size:18px;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+}
+
+.hero button:hover{
+transform:scale(1.05);
+background:white;
+}
+
+section{
+padding:110px 7%;
+}
+
+.section-title{
+font-size:42px;
+margin-bottom:45px;
+position:relative;
+display:inline-block;
+}
+
+.section-title::after{
+content:'';
+position:absolute;
+left:0;
+bottom:-10px;
+width:70%;
+height:4px;
+background:#00ff99;
+}
+
+.about{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:50px;
+align-items:center;
+}
+
+.about img{
+width:100%;
+border-radius:25px;
+box-shadow:0 10px 40px rgba(0,0,0,0.5);
+}
+
+.about-text p{
+margin-bottom:18px;
+color:#d7d7d7;
+}
+
+.highlight{
+color:#00ff99;
+font-weight:700;
+}
+
+.gallery{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.gallery-card{
+background:#131922;
+border-radius:20px;
+overflow:hidden;
+transition:0.4s;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+.gallery-card:hover{
+transform:translateY(-10px);
+}
+
+.gallery-card img{
+width:100%;
+height:260px;
+object-fit:cover;
+}
+
+.gallery-content{
+padding:25px;
+}
+
+.gallery-content h3{
+margin-bottom:15px;
+color:#00ff99;
+}
+
+.packages{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:30px;
+}
+
+.package{
+background:#131922;
+padding:40px 30px;
+border-radius:20px;
+text-align:center;
+transition:0.3s;
+}
+
+.package:hover{
+transform:scale(1.03);
+}
+
+.package h3{
+font-size:30px;
+margin-bottom:20px;
+}
+
+.price{
+font-size:42px;
+color:#00ff99;
+margin-bottom:20px;
+font-weight:700;
+}
+
+.package ul{
+list-style:none;
+margin-bottom:30px;
+}
+
+.package li{
+margin-bottom:12px;
+color:#d7d7d7;
+}
+
+.package button{
+padding:13px 35px;
+border:none;
+border-radius:35px;
+background:#00ff99;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
+}
+
+.package button:hover{
+background:white;
+}
+
+.calculator{
+background:#131922;
+padding:40px;
+border-radius:20px;
+max-width:600px;
+margin:auto;
+}
+
+.calculator input{
+width:100%;
+padding:15px;
+margin-top:10px;
+margin-bottom:20px;
+border:none;
+border-radius:12px;
+background:#1f2632;
+color:white;
+font-size:16px;
+}
+
+.calculator button{
+padding:14px 35px;
+border:none;
+border-radius:30px;
+background:#00ff99;
+font-weight:700;
+cursor:pointer;
+}
+
+#result{
+margin-top:20px;
+font-size:24px;
+color:#00ff99;
+font-weight:700;
+}
+
+.contact{
+background:#131922;
+padding:40px;
+border-radius:20px;
+}
+
+.contact p{
+margin-bottom:15px;
+font-size:18px;
+color:#d8d8d8;
+}
+
+footer{
+background:black;
+padding:35px;
+text-align:center;
+color:#999;
+margin-top:60px;
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(30px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+@media(max-width:768px){
+
+nav{
+flex-direction:column;
+padding:15px;
+}
+
+nav ul{
+margin-top:15px;
+flex-wrap:wrap;
+justify-content:center;
+gap:15px;
+}
+
+.hero h1{
+font-size:48px;
+}
+
+.hero p{
+font-size:20px;
+}
+
+.section-title{
+font-size:32px;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<nav>
+
+<div class="logo">EnduranceCoachPro</div>
+
+<ul>
+<li><a href="#about">About</a></li>
+<li><a href="#gallery">Gallery</a></li>
+<li><a href="#packages">Coaching</a></li>
+<li><a href="#tools">Tools</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+
+</nav>
+
+<section class="hero">
+
+<video autoplay muted loop playsinline>
+<source src="https://cdn.coverr.co/videos/coverr-runner-training-on-track-1570/1080p.mp4" type="video/mp4">
+</video>
+
+<div class="hero-content">
+
+<h1>Elite Distance Running</h1>
+
+<p>Track • Marathon • Half Marathon Coaching</p>
+
+<button onclick="scrollToSection()">Start Training</button>
+
+</div>
+
+</section>
+
+<section id="about">
+
+<h2 class="section-title">About Coach</h2>
+
+<div class="about">
+
+<img src="https://images.unsplash.com/photo-1552674605-db6ffd4facb5?q=80&w=1200&auto=format&fit=crop">
+
+<div class="about-text">
+
+<p>
+Professional endurance coach specialising in
+<span class="highlight">track racing</span>,
+<span class="highlight">marathon</span>,
+and
+<span class="highlight">half marathon performance</span>.
+</p>
+
+<p>
+Inspired by legendary athletes such as
+<span class="highlight">Kenenisa Bekele</span>,
+<span class="highlight">Haile Gebrselassie</span>,
+<span class="highlight">Mo Farah</span>,
+<span class="highlight">Joshua Cheptegei</span>,
+<span class="highlight">Eliud Kipchoge</span>,
+<span class="highlight">Sebastian Sawe</span>,
+and
+<span class="highlight">Yomif Kejelcha</span>.
+</p>
+
+<p>
+Training systems combine exercise physiology,
+VO₂ max development,
+race strategy,
+strength conditioning,
+and elite performance analysis.
+</p>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="gallery">
+
+<h2 class="section-title">Elite Running Gallery</h2>
+
+<div class="gallery">
+
+<div class="gallery-card">
+
+<img src="https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=1200&auto=format&fit=crop">
+
+<div class="gallery-content">
+
+<h3>Track Racing Legends</h3>
+
+<p>
+Inspired by elite track athletes including
+Kenenisa Bekele,
+Haile Gebrselassie,
+Mo Farah,
+and Joshua Cheptegei.
+</p>
+
+</div>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="https://images.unsplash.com/photo-1517649763962-0c623066013b?q=80&w=1200&auto=format&fit=crop">
+
+<div class="gallery-content">
+
+<h3>Road Marathon Performance</h3>
+
+<p>
+Marathon and half marathon preparation inspired by
+Eliud Kipchoge,
+Sebastian Sawe,
+and Yomif Kejelcha.
+</p>
+
+</div>
+
+</div>
+
+<div class="gallery-card">
+
+<img src="https://images.unsplash.com/photo-1486218119243-13883505764c?q=80&w=1200&auto=format&fit=crop">
+
+<div class="gallery-content">
+
+<h3>Endurance Physiology</h3>
+
+<p>
+Scientifically designed endurance programmes
+focused on aerobic performance,
+running economy,
+and injury prevention.
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="packages">
+
+<h2 class="section-title">Coaching Packages</h2>
+
+<div class="packages">
+
+<div class="package">
+
+<h3>Beginner Runner</h3>
+
+<div class="price">£60</div>
+
+<ul>
+<li>Weekly Training Plan</li>
+<li>Email Support</li>
+<li>Performance Tracking</li>
+</ul>
+
+<button>Get Started</button>
+
+</div>
+
+<div class="package">
+
+<h3>Performance Athlete</h3>
+
+<div class="price">£120</div>
+
+<ul>
+<li>Advanced Coaching</li>
+<li>Strength Programme</li>
+<li>Weekly Analysis</li>
+<li>Race Preparation</li>
+</ul>
+
+<button>Get Started</button>
+
+</div>
+
+<div class="package">
+
+<h3>Elite Coaching</h3>
+
+<div class="price">£200</div>
+
+<ul>
+<li>Elite Athlete Monitoring</li>
+<li>VO₂ Max Testing</li>
+<li>Competition Planning</li>
+<li>Direct Coach Support</li>
+</ul>
+
+<button>Get Started</button>
+
+</div>
+
+</div>
+
+</section>
+
+<section id="tools">
+
+<h2 class="section-title">VO₂ Max Calculator</h2>
+
+<div class="calculator">
+
+<label>Distance Run (meters)</label>
+<input type="number" id="distance">
+
+<label>Time (minutes)</label>
+<input type="number" id="time">
+
+<button onclick="calculateVO2()">Calculate</button>
+
+<p id="result"></p>
+
+</div>
+
+</section>
+
+<section id="contact">
+
+<h2 class="section-title">Contact</h2>
+
+<div class="contact">
+
+<p><strong>Phone:</strong> +44 7831 948895</p>
+
+<p><strong>Email:</strong> coach@endurancecoachpro.com</p>
+
+<p><strong>Location:</strong> London, United Kingdom</p>
+
+</div>
+
+</section>
+
+<footer>
+
+<p>© 2026 EnduranceCoachPro | Elite Running Coaching</p>
+
+</footer>
+
+<script>
+
+function calculateVO2(){
+
+let distance=document.getElementById("distance").value;
+let time=document.getElementById("time").value;
+
+let vo2=(distance/time)*0.2;
+
+document.getElementById("result").innerHTML=
+"Estimated VO₂ Max: " + vo2.toFixed(2);
+
+}
+
+function scrollToSection(){
+
+document.getElementById("packages").scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+</script>
+
+</body>
+
+</html>
